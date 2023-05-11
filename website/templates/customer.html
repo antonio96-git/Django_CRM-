@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<style>
+  .card {
+      text-align: center;
+  }
+</style>
+
+<div class="card">
+  <h5 class="card-header">{{customer.first_name}} {{customer.last_name}}</h5>
+  <div class="card-body">
+
+    <p class="card-text"><strong>Email: </strong>{{customer.email}}</p>
+    <p class="card-text"><strong>Phone: </strong>{{customer.phone}}</p>
+    <p class="card-text"><strong>Address: </strong>{{customer.address}}</p>
+    <p class="card-text"><strong>Country: </strong>{{customer.country}}</p>
+    <p class="card-text"><strong>City: </strong>{{customer.city}}</p>
+    <p class="card-text"><strong>Data Timestamp: </strong>{{customer.created_at}}</p>
+    <a href="{% url 'update_customer' customer.id %}" class="btn btn-secondary" style="margin-right: 10px;">Update Customer</a>
+    <a href="{% url 'home' %}" class="btn btn-secondary">Back</a>
+    <a href="{% url 'delete' customer.id %}" class="btn btn-danger">Delete</a>
+  </div>
+</div>
+
+{% endblock %}
